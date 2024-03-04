@@ -6,6 +6,15 @@ from src.mlProject.pipeline.stage_04_model_trainer import ModelTrainerTrainingPi
 from src.mlProject.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
 
 
+import dagshub
+dagshub.init(repo_owner='kashishthakur26', repo_name='ML_project_with_ML_Flow', mlflow=True)
+import mlflow
+
+with mlflow.start_run():
+  # Your training code here...
+  mlflow.log_metric('accuracy', 42)
+  mlflow.log_param('Param name', 'Value')
+
 STAGE_NAME = "Data Ingestion stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
